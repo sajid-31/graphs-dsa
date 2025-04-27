@@ -8,16 +8,16 @@
 // https://leetcode.com/problems/number-of-provinces/submissions/1619281400
 
 /* APPROACH: To find the number of provinces we need to maintain a list of visisted nodes.
-If you encounter an unvisited node, apply bfs on it to traverse all the nodes connected to it and mark them as visited.
+If you encounter an unvisited node, apply dfs on it to traverse all the nodes connected to it and mark them as visited.
 In this way we can count the number of provinces */
 
 
 class Solution {
     public:
-        void bfs(int node,vector<vector<int>>& isConnected,vector<int>& vis){
+        void dfs(int node,vector<vector<int>>& isConnected,vector<int>& vis){
             vis[node] = 1;
             for(int i=0;i<isConnected.size();i++){
-                if(vis[i]==0 && isConnected[node][i]==1) bfs(i,isConnected,vis);
+                if(vis[i]==0 && isConnected[node][i]==1) dfs(i,isConnected,vis);
             }
         }
     
@@ -27,7 +27,7 @@ class Solution {
             for(int i=0;i<n;i++){
                 if(vis[i]==0){
                     total++;
-                    bfs(i,isConnected,vis);
+                    dfs(i,isConnected,vis);
                 }
             }
             return total;

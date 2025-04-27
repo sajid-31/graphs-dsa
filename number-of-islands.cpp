@@ -7,7 +7,7 @@
 /*APPROACH:  As the problem is to find the number of inslands 
 we can just iterate the whole grid 
    if we encounter a '1' it means we have reached land, 
-   apply bfs to traverse the connected land and turn it to '0' 
+   apply DFS to traverse the connected land and turn it to '0' 
    as it is part of the same land and we have already explored it
    after each dfs, increase the count of totalIslands  by 1 (as we have explored 1 island completely)
    this approach
